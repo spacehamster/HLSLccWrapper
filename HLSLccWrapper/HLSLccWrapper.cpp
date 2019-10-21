@@ -11,7 +11,7 @@ namespace HLSLccWrapper {
 		IntPtr p = Marshal::StringToHGlobalAnsi(filepath);
 		const char* _filename = static_cast<char*>(p.ToPointer());
 		unsigned int flags = HLSLCC_FLAG_UNIFORM_BUFFER_OBJECT;
-		GLLang language = GLLang::LANG_DEFAULT;
+		GLLang language = (GLLang)lang;
 		GlExtensions ext;
 		ext.ARB_explicit_attrib_location = extensions->ARB_explicit_attrib_location;
 		ext.ARB_explicit_uniform_location = extensions->ARB_explicit_uniform_location;
@@ -47,7 +47,7 @@ namespace HLSLccWrapper {
 		Marshal::Copy(data, 0, p, data->Length);
 		const char* unmanagedData = static_cast<char*>(p.ToPointer());
 		unsigned int flags = HLSLCC_FLAG_UNIFORM_BUFFER_OBJECT;
-		GLLang language = GLLang::LANG_DEFAULT;
+		GLLang language = (GLLang)lang;
 		GlExtensions ext;
 		ext.ARB_explicit_attrib_location = extensions->ARB_explicit_attrib_location;
 		ext.ARB_explicit_uniform_location = extensions->ARB_explicit_uniform_location;
